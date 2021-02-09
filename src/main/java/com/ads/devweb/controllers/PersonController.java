@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/persons")
+@RequestMapping(value = "/people")
 public class PersonController {
 
     @Autowired
@@ -32,13 +32,12 @@ public class PersonController {
     @DeleteMapping(value = "/{id}/ads")
     public String deletePerson(@PathVariable Long id) {
         personService.deletePerson(id);
-        return "Pessoal deletada!";
+        return "Pessoa deletada ID( " + id + " )";
     }
 
-    @PutMapping(value = "{id}")
-    public Person updatePerson(@PathVariable Long id) {
-        personService.updatePerson(personService.getPersonById(id));
-        Person person = personService.getPersonById(id);
+    @PutMapping
+    public Person updatePerson(@RequestBody Person person) {
+        person = personService.updatePerson(person);
         return person;
     }
 }

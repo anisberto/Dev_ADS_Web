@@ -27,6 +27,13 @@ public class Person {
         this.telefone = telefone;
     }
 
+    public Person(Person person) {
+        this.id = person.getId();
+        this.nome = person.getNome();
+        this.email = person.getEmail();
+        this.telefone = person.telefone;
+    }
+
     public Long getId() {
         return id;
     }
