@@ -1,0 +1,36 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card text-white bg-secondary">
+                <img class="card-img-top" src="holder.js/100px180/" alt="">
+                <div class="card-body">
+                    <h2 class="card-title"><strong>Create a new Person</strong></h2>
+                    <p class="card-text">Atention for date</p>
+                </div>
+                <div class="col-12 col-md-12">
+                    <div class="form-group">
+                        <label for="nome"><strong>Name Person</strong></label>
+                        <input type="text" class="form-control" name="nome" placeholder="Name" id="nome" [(ngModel)]="person.nome" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <div class="form-group">
+                        <label for="nome"><strong>Fone Person</strong></label>
+                        <input type="number" class="form-control" name="telefone" placeholder="Telefone" id="telefone" [(ngModel)]="person.telefone" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <div class="form-group">
+                        <label for="nome"><strong>E-mail Person</strong></label>
+                        <input type="text" class="form-control" name="email" placeholder="E-mail" id="email" [(ngModel)]="person.email" required="true">
+                    </div>
+                </div>
+                <div class="col-12 col-md-12" style="width: 250% !important;">
+                    <a name="save" id="save" class="btn btn-success" (click)="update()" role="button">Salvar</a>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
