@@ -26,7 +26,7 @@ export class PersonService {
     return this.httpcliente.post<Person>(environment.url,person);
   }
 
-  deletePerson(id: number): Observable<Person>{
+  deletePerson(id: any): Observable<Person>{
     return this.httpcliente.delete<Person>(`${environment.url}/${id}/ads`);
   }
 

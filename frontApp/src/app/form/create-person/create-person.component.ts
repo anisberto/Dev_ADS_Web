@@ -19,11 +19,11 @@ export class CreatePersonComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  update(){
+  addPerson(){
     if(this.person == null){
       alert("Preencha todos os itens")
     }else{
-      this.personService.updatePerson(this.person).subscribe(()=>{
+      this.personService.addPerson(this.person).subscribe(()=>{
       })
       this.router.navigate(["/listPerson"]);
     }
