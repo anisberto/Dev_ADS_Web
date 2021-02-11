@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ads.devweb.DevwebApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.223 s - in com.ads.devweb.DevwebApplicationTests

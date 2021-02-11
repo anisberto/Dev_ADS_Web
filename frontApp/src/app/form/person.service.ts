@@ -12,25 +12,25 @@ export class PersonService {
 
   constructor(private httpcliente: HttpClient) { }
 
-  getPerson(): Observable<Person[]> {
+  getPerson(): Observable<any[]> {
     const url = `${environment.url}`;
-    return this.httpcliente.get<Person[]>(url);
+    return this.httpcliente.get<any[]>(url);
   }
 
-  getPersonById(id: any): Observable<Person> {
+  getPersonById(id: any): Observable<any> {
     const url = `${environment.url}/${id}`;
-    return this.httpcliente.get<Person>(url);
+    return this.httpcliente.get<any>(url);
   }
 
-  addPerson(person: Person): Observable<Person>{
-    return this.httpcliente.post<Person>(environment.url,person);
+  addPerson(person: any): Observable<any>{
+    return this.httpcliente.post<any>(environment.url,person);
   }
 
-  deletePerson(id: any): Observable<Person>{
-    return this.httpcliente.delete<Person>(`${environment.url}/${id}/ads`);
+  deletePerson(id: any): Observable<any>{
+    return this.httpcliente.delete<any>(`${environment.url}/${id}/ads`);
   }
 
-  updatePerson(person: Person): Observable<Person>{
-    return this.httpcliente.put<Person>(environment.url,person);
+  updatePerson(person: any): Observable<any>{
+    return this.httpcliente.put<any>(environment.url,person);
   }
 }

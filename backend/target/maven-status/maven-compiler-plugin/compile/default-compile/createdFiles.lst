@@ -1,0 +1,5 @@
+com/ads/devweb/entities/Person.class
+com/ads/devweb/controllers/PersonController.class
+com/ads/devweb/repositories/PersonRespository.class
+com/ads/devweb/services/PersonService.class
+com/ads/devweb/DevwebApplication.class
