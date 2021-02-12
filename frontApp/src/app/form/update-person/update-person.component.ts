@@ -9,7 +9,7 @@ import { PersonService } from '../person.service';
   styleUrls: ['./update-person.component.css']
 })
 export class UpdatePersonComponent implements OnInit {
-  person?: Person={
+  person?: any={
     nome:'',
     email: '',
     telefone: ''
