@@ -1,44 +1,45 @@
 package com.ads.devweb.controllers;
 
-import com.ads.devweb.entities.Person;
-import com.ads.devweb.services.PersonService;
+import com.ads.devweb.entities.Course;
+import com.ads.devweb.entities.Disciplina;
+import com.ads.devweb.services.DisciplinaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/people")
+@RequestMapping(value = "/disciplina")
 @CrossOrigin(origins = "*")
 public class DisciplinaController {
 
     @Autowired
-    private PersonService personService;
+    private DisciplinaService disciplinaService;
 
     @GetMapping
-    public List<Person> getAll() {
-        return personService.getAll();
+    public List<Disciplina> getAll() {
+        return disciplinaService.getAll();
     }
 
     @GetMapping(value = "/{id}")
-    public Person getById(@PathVariable Long id) {
-        return personService.getPersonById(id);
+    public Disciplina getById(@PathVariable Long id) {
+        return disciplinaService.getDisciplinaById(id);
     }
 
     @PostMapping
-    public Person savePerson(@RequestBody Person person) {
-        return personService.savePerson(person);
+    public Disciplina saveDisciplina(@RequestBody Disciplina disciplina) {
+        return disciplinaService.saveDisciplina(disciplina);
     }
 
     @DeleteMapping(value = "/{id}/ads")
-    public String deletePerson(@PathVariable Long id) {
-        personService.deletePerson(id);
-        return "Pessoa deletada ID( " + id + " )";
+    public String deleteDisciplina(@PathVariable Long id) {
+        disciplinaService.deleteDisciplina(id);
+        return "disciplina deletada ID( " + id + " )";
     }
 
     @PutMapping
-    public Person updatePerson(@RequestBody Person person) {
-        person = personService.updatePerson(person);
-        return person;
+    public Disciplina updateCourse(@RequestBody Disciplina disciplina) {
+        disciplina = disciplinaService.updateDisciplina(disciplina);
+        return disciplina;
     }
 }

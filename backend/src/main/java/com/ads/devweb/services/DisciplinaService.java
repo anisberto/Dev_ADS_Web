@@ -1,7 +1,7 @@
 package com.ads.devweb.services;
 
-import com.ads.devweb.entities.Person;
-import com.ads.devweb.repositories.PersonRespository;
+import com.ads.devweb.entities.Disciplina;
+import com.ads.devweb.repositories.DisciplinaRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,33 +12,33 @@ import java.util.List;
 public class DisciplinaService {
 
     @Autowired
-    private PersonRespository personRespository;
+    private DisciplinaRespository disciplinaRespository;
 
     @Transactional(readOnly = true)
-    public List<Person> getAll(){
-        return personRespository.findAll();
+    public List<Disciplina> getAll() {
+        return disciplinaRespository.findAll();
     }
 
     @Transactional
-    public Person getPersonById(Long id){
-        Person personById = personRespository.findById(id).get();
-        return personById;
+    public Disciplina getDisciplinaById(Long id) {
+        Disciplina disciplinaById = disciplinaRespository.findById(id).get();
+        return disciplinaById;
     }
 
     @Transactional
-    public Person savePerson(Person person){
-        person = personRespository.save(person);
-        return person;
+    public Disciplina saveDisciplina(Disciplina disciplina) {
+        disciplina = disciplinaRespository.save(disciplina);
+        return disciplina;
     }
 
     @Transactional
-    public void deletePerson(Long id){
-        personRespository.delete(personRespository.findById(id).get());
+    public void deleteDisciplina(Long id) {
+        disciplinaRespository.delete(disciplinaRespository.findById(id).get());
     }
 
     @Transactional
-    public Person updatePerson(Person person){
-        person = personRespository.save(person);
-        return person;
+    public Disciplina updateDisciplina(Disciplina disciplina) {
+        disciplina = disciplinaRespository.save(disciplina);
+        return disciplina;
     }
 }

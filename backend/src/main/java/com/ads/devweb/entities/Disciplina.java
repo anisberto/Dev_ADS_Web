@@ -1,37 +1,27 @@
 package com.ads.devweb.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.*;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class Disciplina {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne
+    private Turma turma;
+
     private String nome;
-    private String email;
-    private String telefone;
-
     public Disciplina() {
-
     }
 
-    public Disciplina(Long id, String nome, String email, String telefone) {
+    public Disciplina(Long id, Turma turma, String nome) {
         this.id = id;
+        this.turma = turma;
         this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-    }
-
-    public Disciplina(Disciplina person) {
-        this.id = person.getId();
-        this.nome = person.getNome();
-        this.email = person.getEmail();
-        this.telefone = person.telefone;
     }
 
     public Long getId() {
@@ -42,6 +32,14 @@ public class Disciplina {
         this.id = id;
     }
 
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -50,32 +48,18 @@ public class Disciplina {
         this.nome = nome;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Disciplina person = (Disciplina) o;
-        return Objects.equals(id, person.id) && Objects.equals(nome, person.nome) && Objects.equals(email, person.email) && Objects.equals(telefone, person.telefone);
+        Disciplina that = (Disciplina) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(turma, that.turma) &&
+                Objects.equals(nome, that.nome);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, email, telefone);
+        return Objects.hash(id, turma, nome);
     }
 }

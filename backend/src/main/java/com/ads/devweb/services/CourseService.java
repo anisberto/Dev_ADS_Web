@@ -1,10 +1,12 @@
 package com.ads.devweb.services;
 
+import com.ads.devweb.entities.Course;
 import com.ads.devweb.entities.Person;
-import com.ads.devweb.repositories.PersonRespository;
+import com.ads.devweb.repositories.CourseRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -12,33 +14,33 @@ import java.util.List;
 public class CourseService {
 
     @Autowired
-    private PersonRespository personRespository;
+    private CourseRespository courseRepository;
 
     @Transactional(readOnly = true)
-    public List<Person> getAll(){
-        return personRespository.findAll();
+    public List<Course> getAll() {
+        return courseRepository.findAll();
     }
 
     @Transactional
-    public Person getPersonById(Long id){
-        Person personById = personRespository.findById(id).get();
-        return personById;
+    public Course getcourseById(Long id) {
+        Course courseById = courseRepository.findById(id).get();
+        return courseById;
     }
 
     @Transactional
-    public Person savePerson(Person person){
-        person = personRespository.save(person);
-        return person;
+    public Course saveCourse(Course course) {
+        course = courseRepository.save(course);
+        return course;
     }
 
     @Transactional
-    public void deletePerson(Long id){
-        personRespository.delete(personRespository.findById(id).get());
+    public void deleteCourse(Long id) {
+        courseRepository.delete(courseRepository.findById(id).get());
     }
 
     @Transactional
-    public Person updatePerson(Person person){
-        person = personRespository.save(person);
-        return person;
+    public Course updatePerson(Course course) {
+        course = courseRepository.save(course);
+        return course;
     }
 }

@@ -1,44 +1,46 @@
 package com.ads.devweb.controllers;
 
-import com.ads.devweb.entities.Person;
-import com.ads.devweb.services.PersonService;
+import com.ads.devweb.entities.Disciplina;
+import com.ads.devweb.entities.Turma;
+import com.ads.devweb.services.TurmaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/people")
+@RequestMapping(value = "/turma")
 @CrossOrigin(origins = "*")
 public class TurmaController {
 
     @Autowired
-    private PersonService personService;
+    private TurmaService turmaService;
 
     @GetMapping
-    public List<Person> getAll() {
-        return personService.getAll();
+    public List<Turma> getAll() {
+        return turmaService.getAll();
     }
 
     @GetMapping(value = "/{id}")
-    public Person getById(@PathVariable Long id) {
-        return personService.getPersonById(id);
+    public Turma getById(@PathVariable Long id) {
+        return turmaService.getTurmaById(id);
     }
 
     @PostMapping
-    public Person savePerson(@RequestBody Person person) {
-        return personService.savePerson(person);
+    public Turma saveTurma(@RequestBody Turma turma) {
+        return turmaService.saveTurma(turma);
     }
 
     @DeleteMapping(value = "/{id}/ads")
-    public String deletePerson(@PathVariable Long id) {
-        personService.deletePerson(id);
-        return "Pessoa deletada ID( " + id + " )";
+    public String deleteTurma(@PathVariable Long id) {
+        turmaService.deleteTurma(id);
+        return "turma deletada ID( " + id + " )";
     }
 
     @PutMapping
-    public Person updatePerson(@RequestBody Person person) {
-        person = personService.updatePerson(person);
-        return person;
+    public Turma updateTurma(@RequestBody Turma turma) {
+        turma = turmaService.updateTurma(turma);
+        return turma;
     }
+
 }

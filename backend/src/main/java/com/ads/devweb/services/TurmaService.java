@@ -1,7 +1,7 @@
 package com.ads.devweb.services;
 
-import com.ads.devweb.entities.Person;
-import com.ads.devweb.repositories.PersonRespository;
+import com.ads.devweb.entities.Turma;
+import com.ads.devweb.repositories.TurmaRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,33 +12,33 @@ import java.util.List;
 public class TurmaService {
 
     @Autowired
-    private PersonRespository personRespository;
+    private TurmaRespository turmaRepository;
 
     @Transactional(readOnly = true)
-    public List<Person> getAll(){
-        return personRespository.findAll();
+    public List<Turma> getAll() {
+        return turmaRepository.findAll();
     }
 
     @Transactional
-    public Person getPersonById(Long id){
-        Person personById = personRespository.findById(id).get();
-        return personById;
+    public Turma getTurmaById(Long id) {
+        Turma turmaById = turmaRepository.findById(id).get();
+        return turmaById;
     }
 
     @Transactional
-    public Person savePerson(Person person){
-        person = personRespository.save(person);
-        return person;
+    public Turma saveTurma(Turma turma) {
+        turma = turmaRepository.save(turma);
+        return turma;
     }
 
     @Transactional
-    public void deletePerson(Long id){
-        personRespository.delete(personRespository.findById(id).get());
+    public void deleteTurma(Long id) {
+        turmaRepository.delete(turmaRepository.findById(id).get());
     }
 
     @Transactional
-    public Person updatePerson(Person person){
-        person = personRespository.save(person);
-        return person;
+    public Turma updateTurma(Turma turma) {
+        turma = turmaRepository.save(turma);
+        return turma;
     }
 }

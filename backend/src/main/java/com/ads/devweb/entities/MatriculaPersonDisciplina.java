@@ -1,37 +1,27 @@
 package com.ads.devweb.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.*;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class MatriculaPersonDisciplina {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
-    private String email;
-    private String telefone;
+    @ManyToOne
+    private Person person;
+    @ManyToOne
+    private Disciplina disciplina;
 
     public MatriculaPersonDisciplina() {
-
     }
 
-    public MatriculaPersonDisciplina(Long id, String nome, String email, String telefone) {
+    public MatriculaPersonDisciplina(Long id, Person person, Disciplina disciplina) {
         this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-    }
-
-    public MatriculaPersonDisciplina(MatriculaPersonDisciplina person) {
-        this.id = person.getId();
-        this.nome = person.getNome();
-        this.email = person.getEmail();
-        this.telefone = person.telefone;
+        this.person = person;
+        this.disciplina = disciplina;
     }
 
     public Long getId() {
@@ -42,40 +32,32 @@ public class MatriculaPersonDisciplina {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
-    public String getEmail() {
-        return email;
+    public Disciplina getDisciplina() {
+        return disciplina;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MatriculaPersonDisciplina person = (MatriculaPersonDisciplina) o;
-        return Objects.equals(id, person.id) && Objects.equals(nome, person.nome) && Objects.equals(email, person.email) && Objects.equals(telefone, person.telefone);
+        MatriculaPersonDisciplina that = (MatriculaPersonDisciplina) o;
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, email, telefone);
+        return Objects.hash(id);
     }
 }

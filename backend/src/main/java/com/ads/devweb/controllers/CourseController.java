@@ -1,44 +1,45 @@
 package com.ads.devweb.controllers;
 
+import com.ads.devweb.entities.Course;
 import com.ads.devweb.entities.Person;
-import com.ads.devweb.services.PersonService;
+import com.ads.devweb.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/people")
+@RequestMapping(value = "/cursos")
 @CrossOrigin(origins = "*")
 public class CourseController {
 
     @Autowired
-    private PersonService personService;
+    private CourseService courseService;
 
     @GetMapping
-    public List<Person> getAll() {
-        return personService.getAll();
+    public List<Course> getAll() {
+        return courseService.getAll();
     }
 
     @GetMapping(value = "/{id}")
-    public Person getById(@PathVariable Long id) {
-        return personService.getPersonById(id);
+    public Course getById(@PathVariable Long id) {
+        return courseService.getcourseById(id);
     }
 
     @PostMapping
-    public Person savePerson(@RequestBody Person person) {
-        return personService.savePerson(person);
+    public Course saveCourse(@RequestBody Course course) {
+        return courseService.saveCourse(course);
     }
 
     @DeleteMapping(value = "/{id}/ads")
-    public String deletePerson(@PathVariable Long id) {
-        personService.deletePerson(id);
+    public String deleteCourse(@PathVariable Long id) {
+        courseService.deleteCourse(id);
         return "Pessoa deletada ID( " + id + " )";
     }
 
     @PutMapping
-    public Person updatePerson(@RequestBody Person person) {
-        person = personService.updatePerson(person);
-        return person;
+    public Course updateCourse(@RequestBody Course course) {
+        course = courseService.updatePerson(course);
+        return course;
     }
 }

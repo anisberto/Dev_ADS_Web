@@ -1,5 +1,6 @@
 package com.ads.devweb.entities;
 
+import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,30 +9,17 @@ import java.util.Objects;
 
 @Entity
 public class Course {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String email;
-    private String telefone;
 
     public Course() {
-
     }
 
-    public Course(Long id, String nome, String email, String telefone) {
+    public Course(Long id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-    }
-
-    public Course(Course person) {
-        this.id = person.getId();
-        this.nome = person.getNome();
-        this.email = person.getEmail();
-        this.telefone = person.telefone;
     }
 
     public Long getId() {
@@ -50,32 +38,16 @@ public class Course {
         this.nome = nome;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Course person = (Course) o;
-        return Objects.equals(id, person.id) && Objects.equals(nome, person.nome) && Objects.equals(email, person.email) && Objects.equals(telefone, person.telefone);
+        Course course = (Course) o;
+        return id.equals(course.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, email, telefone);
+        return Objects.hash(id);
     }
 }
