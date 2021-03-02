@@ -1,12 +1,10 @@
 package com.ads.devweb.services;
 
-import com.ads.devweb.entities.Course;
 import com.ads.devweb.entities.MatriculaPersonDisciplina;
 import com.ads.devweb.repositories.MatriculaPersonDisciplinaRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 @Service
