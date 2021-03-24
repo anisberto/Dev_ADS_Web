@@ -13,8 +13,15 @@
             <td>{{person.nome}}</td>
             <td>{{person.email}}</td>
             <td>{{person.telefone}}</td>
-            <td class="text-center"><button class="btn btn-danger btn-sm" (click)="deletePerson(person.id)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
             <td class="text-center"><button routerLink="/personUpdate/{{ person.id }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-remove" ></span> Alterar</button></td>
+            <td class="text-center"><button class="btn btn-danger btn-sm" (click)="openModal(template)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+            <ng-template #template>
+                <div class="modal-body text-center">
+                  <p>Confirmar Deleção ?</p>
+                  <button type="button" class="btn btn-default" (click)="confirm(person.id)" >Sim</button>
+                  <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
+                </div>
+              </ng-template>
         </tr>
     </tbody>
 </table>
