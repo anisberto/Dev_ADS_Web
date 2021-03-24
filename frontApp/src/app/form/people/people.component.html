@@ -17,9 +17,9 @@
             <td class="text-center"><button class="btn btn-danger btn-sm" (click)="openModal(template)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
             <ng-template #template>
                 <div class="modal-body text-center">
-                  <p>Confirmar Deleção ?</p>
-                  <button type="button" class="btn btn-default" (click)="confirm(person.id)" >Sim</button>
-                  <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
+                  <p><strong>Confirmar Deleção ?</strong></p>
+                  <button type="button" class="btn btn-success btn-sm" (click)="confirm(person.id)" >Sim</button>
+                  <button type="button" class="btn btn-danger btn-sm" (click)="decline()" >Não</button>
                 </div>
               </ng-template>
         </tr>
