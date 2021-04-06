@@ -6,10 +6,10 @@ import { UpdatePersonComponent } from './form/update-person/update-person.compon
 import { HomeComponent } from './navegation/home/home.component';
 
 const routes: Routes = [
-  {path:"",component:HomeComponent},
-  {path:"personUpdate/:id",component:UpdatePersonComponent},
-  {path:"listPerson",component:PersonComponent},
-  {path:"createPerson",component:CreatePersonComponent}
+  { path: '', component: HomeComponent },
+  { path: "personUpdate/:id", component: UpdatePersonComponent },
+  { path: "listPerson", component: PersonComponent },
+  { path: "createPerson", component: CreatePersonComponent }
 ];
 
 @NgModule({

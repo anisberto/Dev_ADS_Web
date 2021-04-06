@@ -26,6 +26,12 @@
                         <input type="text" class="form-control" name="email" placeholder="E-mail" id="email" [(ngModel)]="person.email" required="true">
                     </div>
                 </div>
+                <div class="col-12 col-md-12">
+                    <div class="form-group">
+                        <label for="nome"><strong>CPF Person</strong></label>
+                        <input type="text" class="form-control" name="cpf" placeholder="CPF" id="cpf" [(ngModel)]="person.cpf">
+                    </div>
+                </div>
                 <div class="col-12 col-md-12" style="width: 250% !important;">
                     <a name="save" id="save" class="btn btn-success" (click)="addPerson()" role="button">Salvar</a>
                 </div>

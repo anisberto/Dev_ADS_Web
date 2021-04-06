@@ -15,16 +15,18 @@ public class Person {
     private String nome;
     private String email;
     private String telefone;
+    private String cpf;
 
     public Person() {
 
     }
 
-    public Person(Long id, String nome, String email, String telefone) {
+    public Person(Long id, String nome, String email, String telefone , String cpf) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
+        this.cpf = cpf;
     }
 
     public Person(Person person) {
@@ -32,6 +34,7 @@ public class Person {
         this.nome = person.getNome();
         this.email = person.getEmail();
         this.telefone = person.telefone;
+        this.cpf = person.cpf;
     }
 
     public Long getId() {
@@ -64,6 +67,14 @@ public class Person {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     @Override

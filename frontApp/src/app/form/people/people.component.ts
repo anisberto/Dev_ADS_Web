@@ -1,9 +1,10 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, Pipe, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Person } from '../person';
 import { PersonService } from '../person.service';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { cpfPipe } from 'src/app/pip/cpfPip';
 
 @Component({
   selector: 'app-people',

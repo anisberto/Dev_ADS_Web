@@ -27,6 +27,12 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-12">
+                    <div class="form-group">
+                        <label for="nome"><strong>CPF Person</strong></label>
+                        <input type="text" class="form-control" name="cpf" placeholder="CPF" id="cpf" [(ngModel)]="person.cpf">
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
                     <a name="save" id="save" class="btn btn-success" (click)="update()" role="button">Salvar</a>
                     <a name="save" id="save" class="btn btn-danger" (click)="update()" role="button">Cancelar</a>
                 </div>

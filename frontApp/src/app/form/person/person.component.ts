@@ -11,6 +11,7 @@ export class PersonComponent implements OnInit {
   person: Person={
     nome:'',
     email: '',
+    cpf: '',
     telefone: ''
   }
   constructor(private personService: PersonService) { }

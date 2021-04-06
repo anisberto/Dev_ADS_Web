@@ -4,6 +4,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
+            <th>CPF</th>
             <th>Telefone</th>
         </tr>
     </thead>
@@ -12,7 +13,8 @@
             <td>{{person.id}}</td>
             <td>{{person.nome}}</td>
             <td>{{person.email}}</td>
-            <td>{{person.telefone}}</td>
+            <td>{{person.cpf | cpfPip}}</td>
+            <td>{{person.telefone | maskFone}}</td>
             <td class="text-center"><button routerLink="/personUpdate/{{ person.id }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-remove" ></span> Alterar</button></td>
             <td class="text-center"><button class="btn btn-danger btn-sm" (click)="openModal(template)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
             <ng-template #template>

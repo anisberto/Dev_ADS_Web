@@ -13,6 +13,7 @@ export class CreatePersonComponent implements OnInit {
   person: Person={
     nome:'',
     email: '',
+    cpf: '',
     telefone: ''
   }
   constructor(private personService: PersonService , private router: Router) { }
@@ -28,5 +29,4 @@ export class CreatePersonComponent implements OnInit {
       this.router.navigate(["/listPerson"]);
     }
   }
-
 }
