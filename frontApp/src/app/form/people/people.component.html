@@ -15,15 +15,35 @@
             <td>{{person.email}}</td>
             <td>{{person.cpf | cpfPip}}</td>
             <td>{{person.telefone | maskFone}}</td>
-            <td class="text-center"><button routerLink="/personUpdate/{{ person.id }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-remove" ></span> Alterar</button></td>
-            <td class="text-center"><button class="btn btn-danger btn-sm" (click)="openModal(template)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+
+            <td class="text-center"><button class="btn btn-primary btn-sm" (click)="selectContact(person)"> Mostrar
+                    detalhes</button></td>
+            <td class="text-center"><button routerLink="/personUpdate/{{ person.id }}" class="btn btn-info btn-sm"><span
+                        class="glyphicon glyphicon-remove"></span> Alterar</button></td>
+            <td class="text-center"><button class="btn btn-danger btn-sm" (click)="openModal(template)"><span
+                        class="glyphicon glyphicon-remove"></span> Delete</button></td>
             <ng-template #template>
                 <div class="modal-body text-center">
-                  <p><strong>Confirmar Deleção ?</strong></p>
-                  <button type="button" class="btn btn-success btn-sm" (click)="confirm(person.id)" >Sim</button>
-                  <button type="button" class="btn btn-danger btn-sm" (click)="decline()" >Não</button>
+                    <p><strong>Confirmar Deleção ?</strong></p>
+                    <button type="button" class="btn btn-success btn-sm" (click)="confirm(person.id)">Sim</button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="decline()">Não</button>
                 </div>
-              </ng-template>
+            </ng-template>
         </tr>
     </tbody>
 </table>
+<div class="card text-center" *ngIf="selectedContact">
+    <div class="card-header">
+        <strong># {{selectedContact.id}}</strong>
+    </div>
+    <div class="card-block">
+        <h4 class="card-title">{{selectedContact.nome}}</h4>
+        <p class="card-text">
+            E-mail: {{selectedContact.email}}
+            <br>
+            CPF: {{selectedContact.cpf | cpfPip}}
+            <br>
+            Fone: {{selectedContact.telefone | maskFone}}
+        </p>
+    </div>
+</div>

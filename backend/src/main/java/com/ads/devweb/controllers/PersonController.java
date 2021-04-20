@@ -5,6 +5,7 @@ import com.ads.devweb.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -16,7 +17,8 @@ public class PersonController {
     private PersonService personService;
 
     @GetMapping
-    public List<Person> getAll() {
+    public List<Person> getAll(Principal principal) {
+    	System.out.println(principal.getName());
         return personService.getAll();
     }
 

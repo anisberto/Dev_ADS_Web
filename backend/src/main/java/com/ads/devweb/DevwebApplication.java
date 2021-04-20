@@ -31,9 +31,9 @@ public class DevwebApplication {
         //Adding Header
         ParameterBuilder aParameterBuilder = new ParameterBuilder();
         aParameterBuilder.name("Authorization").modelRef(new ModelRef("string")).parameterType("header").required(false).build();
-        List<Parameter> aParameters = new ArrayList<>();
+        List<Parameter> aParameters = new ArrayList();
         aParameters.add(aParameterBuilder.build());
-        Set<String> protocols = new HashSet<>();
+        Set<String> protocols = new HashSet();
         protocols.add("http");
         protocols.add("https");
         return new Docket(DocumentationType.SWAGGER_2).host(swaggerPath)

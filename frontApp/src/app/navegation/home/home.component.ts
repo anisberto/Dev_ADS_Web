@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   logar() {
+    localStorage.setItem('access_token_ads04','5745db75-6919-4050-a662-9583265e1ffa');
     this.route.navigate(['/listPerson']);
   }
 }

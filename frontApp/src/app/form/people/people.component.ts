@@ -16,6 +16,7 @@ export class PeopleComponent implements OnInit {
   person: any;
   modalRef: BsModalRef = new BsModalRef;
   message: any;
+  selectedContact: any;
 
   constructor(private personService: PersonService, private router: Router,private modalService: BsModalService) { }
 
@@ -35,6 +36,10 @@ export class PeopleComponent implements OnInit {
   load() {
     location.reload()
   }
+   selectContact(contact: any){
+    this.selectedContact = contact;
+  }
+
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, {class: 'modal-sm'});

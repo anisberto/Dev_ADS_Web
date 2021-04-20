@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.core.AutoConfigureCache;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +38,8 @@ class DevwebApplicationTests {
 
     @Test
     @DisplayName("Buscar todas as pessoas")
-    public void TestGetPerson() {
-        List person = personController.getAll();
+    public void TestGetPerson(Principal principal) {
+        List person = personController.getAll(principal);
         Assertions.assertThat(person.size() > 2);
     }
 
