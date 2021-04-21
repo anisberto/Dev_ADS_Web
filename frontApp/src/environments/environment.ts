@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   url: 'http://localhost:8080/people',
+  urlLogin: 'http://localhost:8080',
 };
 
 /*

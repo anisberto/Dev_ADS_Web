@@ -14,6 +14,7 @@ import { HomeComponent } from './navegation/home/home.component';
 import { cpfPipe } from './pip/cpfPip';
 import { fonePip } from './pip/fonePip';
 import { AuthInterceptor } from 'src/http.interceptor';
+import { LoginAuthComponent } from './login/login-auth/login-auth.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AuthInterceptor } from 'src/http.interceptor';
     UpdatePersonComponent,
     CreatePersonComponent,
     cpfPipe,
-    fonePip
+    fonePip,
+    LoginAuthComponent
   ],
   imports: [
     BrowserModule,
